@@ -28,3 +28,5 @@ Combinar `onNext` e `onError` não é permitido.
 - **Flux:** representa um fluxo de 0 ou mais elementos.
 - **Mono:** representa 0 ou 1 elemento.
 - O consumo só inicia com o `subscribe()`.
+
+Nesse módulo também, usamos o operador log() para conseguirmos ver mais detalhes no console. Seu objetivo é apenas dar visibilidade dos sinais emitidos a caráter de teste.
