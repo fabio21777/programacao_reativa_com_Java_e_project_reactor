@@ -17,7 +17,7 @@ Outro operador semelhante é o `takeWhile`, que permite especificar uma condiç�
 
 ## Operador `map`
 
-O operador `map` é usado para transformar os elementos emitidos por um Publisher. Ele aplica uma função a cada elemento e emite o resultado dessa transformação. O `map` não lida com publishers aninhados, ou seja, não transforma um Publisher em outro Publisher.
+O operador `map` é usado para transformar os elementos emitidos por um Publisher. Ele aplica uma função a cada elemento e emite o resultado dessa transformação. O `map` não lida com publishers aninhados, ou seja, ele não "achata" os resultados. Se você precisar lidar com Publishers aninhados, deve usar o operador `flatMap`.
 
 ![Exemplo map](image-20.png)
 
