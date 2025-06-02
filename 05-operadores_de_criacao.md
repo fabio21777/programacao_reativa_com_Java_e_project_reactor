@@ -179,3 +179,14 @@ public class GenerateOperatorTest {
 
 > **Atenção:**
 > O método `readLine()` do `BufferedReader` deve ser chamado apenas uma vez por iteração. Se for chamado mais de uma vez por ciclo, pode pular linhas ou encerrar o fluxo prematuramente, pois cada chamada lê a próxima linha do arquivo.
+
+
+## Resumo dos Operadores de Criação
+
+- **just():** Cria um Flux ou Mono de maneira simples.
+- **fromIterable():** Converte uma coleção em um Flux.
+- **fromArray():** Converte um array em um Flux.
+- **fromStream():** Converte um Stream em um Flux.
+- **range():** Gera um Flux de números em uma faixa específica.
+- **Flux.create():** Cria um Flux com a capacidade de emitir múltiplos elementos de maneira síncrona ou assíncrona. Permite a emissão de elementos a partir de múltiplas threads.
+- **Flux.generate():** Cria um Flux com a capacidade de emitir elementos um por um de maneira síncrona.
