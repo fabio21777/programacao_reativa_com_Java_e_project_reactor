@@ -31,3 +31,5 @@ Este repositório reúne anotações e exemplos práticos sobre Programação Re
 ## [Operadores de Transformação](./06-operadores.md)
 
 ## [Operadores de Combinação](./07-combinando_fluxo_operadores.md)
+
+## [Tratamento de Erros](./08-tratamento-erros.md)
