@@ -56,7 +56,7 @@ O operador `parallel` é usado para dividir o fluxo em múltiplos fluxos paralel
 
 ```java
 @Test
-public void parallelPublishOnBlockingOperation() throws InterruptedException {
+public void parallelBlockingOperation() throws InterruptedException {
     YoutubeChannel youtubeChannel = new YoutubeChannel(MockVideo.generateVideos());
 
     VideoAnalyser videoAnalyser = new VideoAnalyser();
@@ -66,12 +66,18 @@ public void parallelPublishOnBlockingOperation() throws InterruptedException {
                 System.out.println("Filter 1 - Thread: " + Thread.currentThread().getName());
                 return video.getDescription().length() > 10;
             })
-            .flatMap(video -> videoAnalyser.analyseBlockingMono(video))
+            .parallel()
+            .runOn(Schedulers.boundedElastic())
+            // .publishOn(Schedulers.parallel())
+            .map(video -> videoAnalyser.analyseBlocking(video))
+            .sequential()
             .subscribe();
 
     Thread.sleep(30000);
 }
 ```
+
+> É possível alcançar o mesmo resultado com `publishOn`, tornando o método `analyseBlockingMono` um Mono e usando `publishOn(Schedulers.boundedElastic())` ou `subscribeOn(Schedulers.boundedElastic())`. Podemos usar o `publishOn` para definir o scheduler onde as operações subsequentes serão executadas.
 
 ---
 
@@ -88,6 +94,6 @@ Existem 3 tipos principais de schedulers:
 **Principais operadores:**
 
 - `publishOn(Scheduler scheduler)`: Define o scheduler onde as operações subsequentes do fluxo (como map, filter, etc.) serão executadas.
-- `subscribeOn(Scheduler scheduler)`: Define o scheduler onde todas as operações serão afetadas (upstream e downstream).
+- `subscribeOn(Scheduler scheduler)`: Define o scheduler onde todas as operações do fluxo (upstream e downstream) serão executadas.
 - `parallel().runOn(Scheduler scheduler)`: Permite executar operações simultaneamente em paralelo em várias threads.
 - `Mono.fromCallable(() -> function()).publishOn(Scheduler scheduler)`: Recebe uma função e produz um Mono que é executado em uma thread paralela.
