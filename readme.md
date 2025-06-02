@@ -29,3 +29,5 @@ Este repositório reúne anotações e exemplos práticos sobre Programação Re
 ## [Operadores de Criação](./05-operadores_de_criacao.md)
 
 ## [Operadores de Transformação](./06-operadores.md)
+
+## [Operadores de Combinação](./07-combinando_fluxo_operadores.md)
