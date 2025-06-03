@@ -33,3 +33,7 @@ Este repositório reúne anotações e exemplos práticos sobre Programação Re
 ## [Operadores de Combinação](./07-combinando_fluxo_operadores.md)
 
 ## [Tratamento de Erros](./08-tratamento-erros.md)
+
+## [Schedulers](./09-schedulers.md)
+
+## [Backpressure](./10-backpressure.md)
