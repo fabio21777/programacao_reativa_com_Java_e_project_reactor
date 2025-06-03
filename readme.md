@@ -37,3 +37,5 @@ Este repositório reúne anotações e exemplos práticos sobre Programação Re
 ## [Schedulers](./09-schedulers.md)
 
 ## [Backpressure](./10-backpressure.md)
+
+## [ Hot e cold publisher](./hot_e_cold_publisher.md)
